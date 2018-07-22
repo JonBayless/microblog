@@ -177,7 +177,7 @@ def reset_password(token):
     if not user:
         return redirect(url_for('index'))
     form = ResetPasswordForm()
-    if form.validate_on_submit()
+    if form.validate_on_submit():
         user.set_password(form.password.data)
         db.session.commit()
         flash('Your password has been reset.')

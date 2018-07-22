@@ -1,0 +1,81 @@
+2018-07-19 15:56:30,623 INFO: Microblog Startup [in /home/jon/PycharmProjects/microblog/venv/app/__init__.py:44]
+2018-07-19 15:56:52,229 INFO: Microblog Startup [in /home/jon/PycharmProjects/microblog/venv/app/__init__.py:44]
+2018-07-19 16:01:07,537 INFO: Microblog Startup [in /home/jon/PycharmProjects/microblog/venv/app/__init__.py:44]
+2018-07-19 16:01:15,956 ERROR: Exception on /user/jon [GET] [in /home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: followers
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/jon/PycharmProjects/microblog/venv/app/routes.py", line 81, in users
+    return render_template('user.html', user=user, posts=posts)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/jon/PycharmProjects/microblog/venv/app/templates/user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/jon/PycharmProjects/microblog/venv/app/templates/base.html", line 34, in top-level template code
+    {%  block content %}{%  endblock %}
+  File "/home/jon/PycharmProjects/microblog/venv/app/templates/user.html", line 9, in block "content"
+    <p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following.</p>
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/dynamic.py", line 265, in count
+    return self._clone(sess).count()
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3223, in count
+    return self.from_self(col).scalar()
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2976, in scalar
+    ret = self.one()
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2947, in one
+    ret = self.one_or_none()
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2917, in one_or_none
+    ret = list(self)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2988, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3011, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
+    raise value.with_traceback(tb)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/jon/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: followers [SQL: 'SELECT count(*) AS count_1 \nFROM (SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen \nFROM user, followers \nWHERE followers.followed_id = ? AND followers.follower_id = user.id) AS anon_1'] [parameters: (2,)] (Background on this error at: http://sqlalche.me/e/e3q8)
